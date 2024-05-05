@@ -22,7 +22,17 @@ def col_names(data):
         elif (i%2)==1:
             column_names.append("")
     data.columns=column_names
+    return data, work_columns
+
+data2, work_columns2=col_names(data)
+
+def sub_min(data, work_columns):
+    for i in work_columns:
+        new_col=[]
+        for j in data[i]:
+            k=j-data[(data["Coord"]>=2.0)][i].min()
+            new_col.append(k)
+        data[i]=new_col
     return data
 
-data2=col_names(data)
-data2.head()
+data3=sub_min(data2, work_columns2)
