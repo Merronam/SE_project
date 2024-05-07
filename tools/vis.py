@@ -45,3 +45,17 @@ def vis_fun(data, work_columns):
     plt.savefig("graph.png")
     return ax
 
+def vis_save(data, work_columns, name):
+    vis_fun(data,work_columns)
+    plt.savefig(name+".png")
+
+def odd_col(data,work_columns):
+    odd_out=[]
+    for i in work_columns:
+        odd=[]
+        for j in range(1,len(data[(data["Coord"]>=2.5)][i])):
+            if data[(data["Coord"]>=2.0)].loc[j+14,i] > data[(data["Coord"]>=2.0)].loc[j+14-1,i]:
+                odd.append("1")
+        if len(odd)>10:
+            odd_out.append(i)
+            print(f"You might need to recalculate {i}")
