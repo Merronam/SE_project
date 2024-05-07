@@ -1,12 +1,6 @@
-#importing basic libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 import itertools
-
-if input("Do you want to modify pictures? y/n ") == "y":
-#input as a command line prompt - no inside names as easy to confuse and not so easily applicable
-    filename=input("Enter name of input file: ")
-    data=pd.read_csv(filename+".csv", na_values="inf")
 
 def col_names(data):
     column_names=[]
@@ -24,8 +18,6 @@ def col_names(data):
     data.columns=column_names
     return data, work_columns
 
-data2, work_columns2=col_names(data)
-
 def sub_min(data, work_columns):
     for i in work_columns:
         new_col=[]
@@ -34,8 +26,6 @@ def sub_min(data, work_columns):
             new_col.append(k)
         data[i]=new_col
     return data
-
-data3=sub_min(data2, work_columns2)
 
 def vis_fun(data, work_columns):
     Ncolors = len(work_columns)
@@ -52,6 +42,6 @@ def vis_fun(data, work_columns):
     ax.spines['bottom'].set_position('zero')
     plt.title("Pre-delete plot")
     fig.legend(loc="right", ncol=1,prop={'size': 8})
+    plt.savefig("graph.png")
     return ax
 
-ax = vis_fun(data3,work_columns2)
