@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import itertools
 
 def col_names(data):
+    """Since naming of the colum """
     column_names=[]
     work_columns=[]
     j=10

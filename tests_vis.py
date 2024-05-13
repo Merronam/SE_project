@@ -50,7 +50,7 @@ data.columns=["Coord","US50","US70"]
 @pytest.mark.parametrize(
     "test, expected",
     [
-        (data, ["US50","US70"]), (['US50']),
+        (data, ["US50","US70"]), (['US70']),
     ])
 
 def test_odd_values():
