@@ -27,7 +27,7 @@ def sub_min(data, work_columns):
         data[i]=new_col
     return data
 
-def vis_fun(data, work_columns):
+def vis_fun(data, work_columns, name):
     Ncolors = len(work_columns)
     colormap = plt.cm.Set3 #choosing colormaps
     mapcolors = [colormap(int(x*colormap.N/Ncolors)) for x in range(Ncolors)]
@@ -40,13 +40,12 @@ def vis_fun(data, work_columns):
     ax.spines['right'].set_color('none')
     ax.spines['top'].set_color('none')
     ax.spines['bottom'].set_position('zero')
-    plt.title("Pre-delete plot")
+    plt.title(name)
     fig.legend(loc="right", ncol=1,prop={'size': 8})
-    plt.savefig("graph.png")
     return ax
 
 def vis_save(data, work_columns, name):
-    vis_fun(data,work_columns)
+    vis_fun(data, work_columns, name)
     plt.savefig(name+".png")
 
 def odd_col(data,work_columns):
@@ -59,3 +58,24 @@ def odd_col(data,work_columns):
         if len(odd)>10:
             odd_out.append(i)
             print(f"You might need to recalculate {i}")
+    return odd_out
+
+def del_col(work_columns, columns):
+    delete_columns=columns.split(" ")
+    delete_columns=["US"+str(eval(i)*10) for i in delete_columns]
+    work_columns=[i for i in work_columns if i not in delete_columns]
+    return work_columns
+
+def spread(data, odd_out):
+    min=data[(data["Coord"]<=2.0)].loc[5,"US10"].min()
+    max=data[(data["Coord"]<=2.0)].loc[5,"US10"].max()
+    for i in [i for i in list(data.columns.values) if i not in odd_out]:
+        new_min=data[(data["Coord"]<=2.0)].loc[5,i].min()
+        new_max=data[(data["Coord"]<=2.0)].loc[5,i].max()
+        if new_min<min:
+            min=new_min
+        if new_max>max:
+            max=new_max
+        diff=max-min
+    if diff > 20:
+        print("The spread is high")
