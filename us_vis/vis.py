@@ -43,7 +43,10 @@ def vis_fun(data, work_columns, name):
     ax.spines['bottom'].set_position('zero')
     plt.title(name)
     fig.legend(loc="right", ncol=1,prop={'size': 8})
-    return ax
+
+def vis_show(data, work_columns, name):
+    vis_fun(data, work_columns, name)
+    plt.show()
 
 def vis_save(data, work_columns, name):
     vis_fun(data, work_columns, name)
