@@ -9,7 +9,7 @@ setup(
 
     license='None',
 
-    packages=['US_VIS'],
+    packages=['us_vis'],
 
     install_requires=[
     ],
