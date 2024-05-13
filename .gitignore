@@ -1,3 +1,5 @@
 venv/
 *.png
 *.csv
+coverage.xml
+__pycache__/
