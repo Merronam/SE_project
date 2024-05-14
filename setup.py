@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='US_VIS'
+    name='us_vis'
 
     version='0.1',
 
@@ -19,6 +19,7 @@ setup(
             'sphinx'
         ],
         'dev': [
+            'flake8',
             'pytest',
             'pytest-cov',
         ],
