@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='us_vis'
+    name='us_vis',
 
     version='0.1',
 
