@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import itertools
+import glob
 
 def col_names(data):
     """Since naming of the colum """
@@ -64,8 +65,12 @@ def odd_col(data,work_columns):
             print(f"You might need to recalculate {i}")
     return odd_out
 
+def split_strings(list_strings):
+    list_strings=list_strings.split(" ")
+    return list_strings
+
 def del_col(work_columns, columns):
-    delete_columns=columns.split(" ")
+    delete_columns=split_strings(columns)
     delete_columns=["US"+str(eval(i)*10) for i in delete_columns]
     work_columns=[i for i in work_columns if i not in delete_columns]
     return work_columns
