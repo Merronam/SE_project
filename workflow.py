@@ -3,8 +3,7 @@ import us_vis
 import glob
 
 while True:
-    if input("Do you want to visualize all pictures w/o 
-            modifying? y/n ") == "y":
+    if input("Do you want to visualize all pictures w/o modifying? y/n ") == "y":
         list=glob.glob("*.csv")
         for i in list:
             data=pd.read_csv(i, na_values = "inf")
@@ -26,8 +25,7 @@ while True:
         us_vis.vis.vis_show(data3, work_columns2, "test")
         odd_out1 = us_vis.vis.odd_col(data3, work_columns2)
         if input('Do you want to delete columns? y/n ') == 'y':
-            columns=input(f"Which columns do you want to delete (Type number 
-                    1 to {len(work_columns2)} separated by space) ")
+            columns=input(f"Which columns do you want to delete (Type number 1 to {len(work_columns2)} separated by space) ")
             work_columns2 = us_vis.vis.del_col(work_columns2, columns)
         us_vis.vis.vis_save(data3, work_columns2, filename)
         us_vis.vis.spread(data3, odd_out1)
@@ -36,8 +34,7 @@ while True:
 
 while True:
     if input("Do you want to merge files? y/n ") == "y":
-        pics = input("The names of the pictures without file extension 
-                (or hit double enter to finish) ")
+        pics = input("The names of the pictures without file extension (or hit double enter to finish) ")
         columns = int(input("How many pictures should there be horizontally? "))
         name = input("Insert name of the output file: ")
         pics = us_vis.vis.split_strings(pics)
