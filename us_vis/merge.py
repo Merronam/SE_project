@@ -12,8 +12,8 @@ def merge_pics(pics, columns, name):
         rows = math.ceil(len(pics)/columns)
         width_max = max([Image.open(image).width for image in pics])
         height_max = max([Image.open(image).height for image in pics])
-        background = Image.new('RGBA',(columns*(width_max+1),
-                                rows*(height_max+1)), (255, 255, 255, 255))
+        background = Image.new('RGBA', (columns*(width_max+1),
+                                    rows*(height_max+1)), (255, 255, 255, 255))
         x = 0
         y = 0
         for i, image in enumerate(pics):
