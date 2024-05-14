@@ -38,8 +38,9 @@ def vis_fun(data, work_columns, name):
     m_styles = ['']  # If in the future I want to add marker
     fig, ax = plt.subplots(gridspec_kw=dict(right=0.85))
     for i, (marker, linestyle, color) in zip(work_columns,
-                                             itertools.product(m_styles, 
-                                             l_styles, mapcolors)):
+                                             itertools.product(m_styles,
+                                                               l_styles,
+                                                               mapcolors)):
         ax.plot(data["Coord"], data[i], color=color, linestyle=linestyle,
                 marker=marker, label=i)
     plt.xlim(1.4, 3.5)
