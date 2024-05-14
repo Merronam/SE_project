@@ -10,7 +10,7 @@ import pandas as pd
         ([[1, 3, 5], [2, 4, 6]]),
         ({'Coord': [1, 2], 'US10': [3, 4], '': [5, 6]}, ['US10']),
     ])
-def test_col_names():
+def test_col_names(test,expected):
     pdt.assert_frame_equal(us_vis.vis.col_names(test), expected)
 
 
@@ -28,7 +28,7 @@ def test_col_names_string():
         ({'Coord': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             'US10': [2, 3, 4, 4, 1, 2, 3, 0, 2, 3]}),
     ])
-def test_sub_min():
+def test_sub_min(test,expected):
     pdt.assert_frame_equal(us_vis.vis.sub_min(test), expected)
 
 
@@ -68,7 +68,7 @@ data.columns = ["Coord", "US50", "US70"]
     [
         (data, ["US50", "US70"]), (['US70']),
     ])
-def test_odd_values():
+def test_odd_values(test,expected):
     pdt.assert_frame_equal(us_vis.vis.sub_min(test), expected)
 
 
@@ -84,5 +84,5 @@ def test_odd_string():
         (['US10', 'US20', 'US30', 'US40', 'US50', 'US60'], "0 0 0"),
         (['US10', 'US20', 'US30', 'US40', 'US50', 'US60'])
     ])
-def test_del_col():
+def test_del_col(test,expected):
     pdt.assert_frame_equal(us_vis.vis.col_names(test), expected)
