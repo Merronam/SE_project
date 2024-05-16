@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import itertools
+import matplotlib
 
 
 def col_names(data):
