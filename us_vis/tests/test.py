@@ -3,6 +3,8 @@ import pandas.testing as pdt
 import us_vis
 import pandas as pd
 
+def test_dummy():
+        pass
 
 @pytest.mark.parametrize(
     "test, expected",
