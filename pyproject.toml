@@ -7,7 +7,7 @@ name = "us_vis"
 version = "0.1"
 
 [tool.pytest.ini_options]
-miniversion = "6.0"
+minversion = "6.0"
 addopts = "-ra -q"
 testpaths = [
 	"us_vis"
