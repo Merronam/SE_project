@@ -5,3 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "us_vis"
 version = "0.1"
+
+[tool.pytest.ini_options]
+miniverion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+	"us_vis"
+]
