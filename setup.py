@@ -7,8 +7,6 @@ setup(
 
     description='Visualisation tools for umbrella sampling calculations',
 
-    license='None',
-
     packages=['us_vis'],
 
     install_requires=["pandas", "matplotlib", "itertools", "PIL", "math"],
