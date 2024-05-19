@@ -11,8 +11,7 @@ setup(
 
     packages=['us_vis'],
 
-    install_requires=[
-    ],
+    install_requires=[pandas,matplotlib,itertools,PIL,math],
 
     extras_require={
         'docs': [
