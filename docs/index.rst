@@ -19,7 +19,7 @@ Contents:
    :maxdepth: 2
       
         Installation and requirements <usage>
-
+        Functions description <functions>
 
 
 Indices and tables

@@ -9,4 +9,4 @@ To use US-VIS, first install it using pip:
 
 .. code-block:: console
 
-      (.venv) $ pip install us_vis
+      $ pip install us_vis
