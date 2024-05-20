@@ -13,6 +13,8 @@ merging pictures.
 
 Check out the :doc:`usage` section for further information.
 
+Contents: 
+
 .. toctree::
    :maxdepth: 2
       
