@@ -26,8 +26,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'classic'
 html_theme_options = {
-    nosidebar = 'true',
     rightsidebar = 'false',
-
 }
 html_static_path = ['_static']

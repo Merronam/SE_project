@@ -14,6 +14,7 @@ merging pictures.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   usage
 
 
 
