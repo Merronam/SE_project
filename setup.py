@@ -16,9 +16,7 @@ setup(
             'sphinx'
         ],
         'dev': [
-            'flake8',
             'pytest',
-            'pytest-cov',
         ],
     },
 
