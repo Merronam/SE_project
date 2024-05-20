@@ -22,7 +22,7 @@ while True:
             data = pd.read_csv(filename+".csv", na_values="inf")
         data2, work_columns2 = us_vis.vis.col_names(data)
         data3 = us_vis.vis.sub_min(data2, work_columns2)
-        us_vis.vis.vis_show(data3, work_columns2, "test")
+        us_vis.vis.vis_show(data3, work_columns2)
         odd_out1 = us_vis.vis.odd_col(data3, work_columns2)
         if input('Do you want to delete columns? y/n ') == 'y':
             columns = input(f"Which columns do you want to delete (Type number 1 to {len(work_columns2)} separated by space) ")
