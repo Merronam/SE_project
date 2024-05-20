@@ -3,13 +3,26 @@ Functions available in the module
 
 .. py:function:: col_names(data)
 
-        Adds column names. Assumes odd columns are coordinates and even columns are
-        energy values. Only first column gets "Coord" name, the rest are left 
-        nameless. The energy columns are names "USX" where X is 10, 20, 30, etc.
+        Adds column names. Assumes odd columns are coordinates and even 
+        columns are energy values. Only first column gets "Coord" name, 
+        the rest are left nameless. The energy columns are names "USX"
+        where X is 10, 20, 30, etc.
 
         :param data: Dataset that contains US runs
         :type data: pandas.DataFrame
-        :return: Data with column names and list of column names (without Coord)
+        :return data: Data with column names.
+        :return work_columns: List of column names (without Coord)
 
+.. py:function:: sub_min(data, work_columns)
 
+        Looks for minimum value of each run on the substrate side of the reaction 
+        coordinate and substracts it from all values for this run. 
+
+        :param data: Dataset that contains US runs, must be named with 
+        ``col_names()`` or with the same convention
+        :type data: pandas.DataFrame
+        :param work_columns: A list of columns that contain energies
+        (USX (X = 10, 20, 30..) by convention).
+        :type work_columns: list[str]
+        :return data: Returns dataset with substracted values
 
