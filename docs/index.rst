@@ -15,7 +15,8 @@ Check out the :doc:`usage` section for further information.
 
 .. toctree::
    :maxdepth: 2
-       Installation and requirements <usage>
+      
+        Installation and requirements <usage>
 
 
 
