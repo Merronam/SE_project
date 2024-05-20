@@ -115,8 +115,8 @@ def del_col(work_columns, columns):
 
 def spread(data, odd_out):
     """
-    Function calculated if the spread (the difference between the maximum
-    and minimum of energy in the product side is smaller than 20
+    Function calculates if the spread (the difference between the maximum
+    and minimum of energy in the product side) is smaller than 20
     """
     min = data[(data["Coord"] <= 2.0)].loc[5, "US10"].min()
     max = data[(data["Coord"] <= 2.0)].loc[5, "US10"].max()
