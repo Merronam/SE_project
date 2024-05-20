@@ -11,7 +11,10 @@ by *WHAM* (http://membrane.urmc.rochester.edu/?page_id=126). It visualises the
 data and gives the options to delete runs, informs about the data and allows 
 merging pictures.
 
-Check out the :doc:`usage` section for further information.
+wokrflow.py is a script that combines all of the functions and guides the user
+through the process. 
+
+Check out the :doc:`usage` section for installation information.
 
 Contents: 
 
