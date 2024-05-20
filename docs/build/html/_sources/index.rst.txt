@@ -5,11 +5,6 @@
 
 Welcome to us_vis's documentation!
 ==================================
-**US-VIS** is a Python module that helps process and visualize umbrella sampling
-runs obtained through *AMBER* (<https://ambermd.org/index.php>) and pre-processed
-by *WHAM* (<http://membrane.urmc.rochester.edu/?page_id=126>). It visualises the
-data and gives the options to delete runs, informs about the data and allows 
-merging pictures.
 
 .. toctree::
    :maxdepth: 2
