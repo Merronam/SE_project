@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Functions available in the module &#8212; us_vis 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=def86cc0" />
+    
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">us_vis 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Functions available in the module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="functions-available-in-the-module">
+<h1>Functions available in the module<a class="headerlink" href="#functions-available-in-the-module" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="col_names">
+<span class="sig-name descname"><span class="pre">col_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#col_names" title="Link to this definition">¶</a></dt>
+<dd><p>Adds column names. Assumes odd columns are coordinates and even columns are energy values. Only first column gets “Coord” name, the rest are left nameless. The energy columns are names “USX”, where X is 10, 20, 30, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Dataset that contains US runs</p>
+</dd>
+<dt class="field-even">Return data<span class="colon">:</span></dt>
+<dd class="field-even"><p>Data with column names.</p>
+</dd>
+<dt class="field-odd">Return work_columns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of column names (without Coord)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sub_min">
+<span class="sig-name descname"><span class="pre">sub_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sub_min" title="Link to this definition">¶</a></dt>
+<dd><p>Looks for minimum value of each run on the substrate side of the reaction coordinate and substracts it from all values for this run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Dataset that contains US runs, must be named with <code class="docutils literal notranslate"><span class="pre">col_names()</span></code> or with the same convention.</p></li>
+<li><p><strong>work_columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of columns that contain energies (USX (X = 10, 20, 30..) by convention).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return data<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns dataset with substracted values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vis_fun">
+<span class="sig-name descname"><span class="pre">vis_fun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vis_fun" title="Link to this definition">¶</a></dt>
+<dd><p>Visualises processed dataset, based on the names of columns in work-columns list and adds title (“name”).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Dataset that contains US runs, must be name with col_names() or with the same convention.</p></li>
+<li><p><strong>work_columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of columns that contain energies (USX (X = 10, 20, 30..) by convention).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The title of the figure displayed at the top</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vis_show">
+<span class="sig-name descname"><span class="pre">vis_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vis_show" title="Link to this definition">¶</a></dt>
+<dd><p>Shows the picture generated by <code class="docutils literal notranslate"><span class="pre">vis_fun()</span></code>. All parameters are the same as for <code class="docutils literal notranslate"><span class="pre">vis_fun()</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vis_save">
+<span class="sig-name descname"><span class="pre">vis_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vis_save" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the picture generated by <code class="docutils literal notranslate"><span class="pre">vis_fun()</span></code>. All parameters are the same as for <code class="docutils literal notranslate"><span class="pre">vis_fun()</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="odd_col">
+<span class="sig-name descname"><span class="pre">odd_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#odd_col" title="Link to this definition">¶</a></dt>
+<dd><p>Designed to find incorrect runs (the ones that constantly increase instead of forming a maximum)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Dataset that contains US runs, must be named with <code class="docutils literal notranslate"><span class="pre">col_names()</span></code> or with the same convention.</p></li>
+<li><p><strong>work_columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of columns that contain energies (USX (X = 10, 20, 30..) by convention).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return odd_out<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of columns that contain incorrect runs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="split_string">
+<span class="sig-name descname"><span class="pre">split_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_strings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#split_string" title="Link to this definition">¶</a></dt>
+<dd><p>Splits a input of strings separated by space into list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list_string</strong> – A long string of strings separated by a space</p>
+</dd>
+<dt class="field-even">Return list_strings<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="del_col">
+<span class="sig-name descname"><span class="pre">del_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">work_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#del_col" title="Link to this definition">¶</a></dt>
+<dd><p>Mostly used with user input - function creates the list of runs without the ones that are mentioned in “columns”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>work_columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of columns that contain energies (USX (X = 10, 20, 30..) by convention).</p></li>
+<li><p><strong>columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Columns that should be excluded from work_columns</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spread">
+<span class="sig-name descname"><span class="pre">spread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odd_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spread" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates if the spread (the difference between the maximum and minimum of energy in the product side) is smaller than 20.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Dataset that contains US runs, must be named with <code class="docutils literal notranslate"><span class="pre">col_names()</span></code> or with the same convention.</p></li>
+<li><p><strong>odd_out</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of columns that contain incorrect runs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="list_pics">
+<span class="sig-name descname"><span class="pre">list_pics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pics</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#list_pics" title="Link to this definition">¶</a></dt>
+<dd><p>Adds .png extension to the list of stings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pics</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of pictures’ names.</p>
+</dd>
+<dt class="field-even">Return pics<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of pictures’ names with extension .png</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#merge" title="Link to this definition">¶</a></dt>
+<dd><p>Merges pictures into one big figure. A number of pictures horizontally is descirbed by <em>columns</em> argument. Name of the file is specified by <em>name</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pics</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of pictures’ names with extension .png</p></li>
+<li><p><strong>columns</strong> (<em>int</em>) – A number of pictures horizontally</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – A name of the merged file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">     Installation and requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">     Functions description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#col_names"><code class="docutils literal notranslate"><span class="pre">col_names()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sub_min"><code class="docutils literal notranslate"><span class="pre">sub_min()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vis_fun"><code class="docutils literal notranslate"><span class="pre">vis_fun()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vis_show"><code class="docutils literal notranslate"><span class="pre">vis_show()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vis_save"><code class="docutils literal notranslate"><span class="pre">vis_save()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odd_col"><code class="docutils literal notranslate"><span class="pre">odd_col()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#split_string"><code class="docutils literal notranslate"><span class="pre">split_string()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#del_col"><code class="docutils literal notranslate"><span class="pre">del_col()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spread"><code class="docutils literal notranslate"><span class="pre">spread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list_pics"><code class="docutils literal notranslate"><span class="pre">list_pics()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merge"><code class="docutils literal notranslate"><span class="pre">merge()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="usage.html"
+                          title="previous chapter">Usage</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">us_vis 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Functions available in the module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, MK.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+  </body>
+</html>
