@@ -3,11 +3,17 @@ import math
 
 
 def list_pics(pics):
+    """
+    Function adds .png extension to the list of names
+    """
     pics = [x + ".png" for x in pics]
     return pics
 
 
 def merge_pics(pics, columns, name):
+    """
+    Merges pictures specified in "pics" argument
+    """
     for image in pics:
         rows = math.ceil(len(pics)/columns)
         width_max = max([Image.open(image).width for image in pics])

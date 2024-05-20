@@ -3,7 +3,10 @@ import itertools
 
 
 def col_names(data):
-    """Since naming of the colum """
+    """
+    Since naming of the columns does not need to the same 
+    the code here names columns in unified way.
+    """
     column_names = []
     work_columns = []
     j = 10
@@ -21,6 +24,9 @@ def col_names(data):
 
 
 def sub_min(data, work_columns):
+    """
+    
+    """
     for i in work_columns:
         new_col = []
         for j in data[i]:
@@ -31,12 +37,15 @@ def sub_min(data, work_columns):
 
 
 def vis_fun(data, work_columns, name):
-    Ncolors = len(work_columns)
+    """
+    Visualization of the data
+    """
+    Ncolors = len(work_columns) # Defining how many colors should there be
     colormap = plt.cm.Set3  # Choosing colormaps
     mapcolors = [colormap(int(x*colormap.N/Ncolors)) for x in range(Ncolors)]
     l_styles = ['-']  # If in the future I want to change linestyle
     m_styles = ['']  # If in the future I want to add marker
-    fig, ax = plt.subplots(gridspec_kw=dict(right=0.85))
+    fig, ax = plt.subplots(gridspec_kw=dict(right=0.85)) 
     for i, (marker, linestyle, color) in zip(work_columns,
                                              itertools.product(m_styles,
                                                                l_styles,
@@ -52,16 +61,25 @@ def vis_fun(data, work_columns, name):
 
 
 def vis_show(data, work_columns, name):
+    """
+    Showing the figure
+    """
     vis_fun(data, work_columns, name)
     plt.show()
 
 
 def vis_save(data, work_columns, name):
+    """
+    Saving picture as .png
+    """
     vis_fun(data, work_columns, name)
     plt.savefig(name+".png")
 
 
 def odd_col(data, work_columns):
+    """
+    Function that finds incorrect runs
+    """
     odd_out = []
     for i in work_columns:
         odd = []
@@ -77,11 +95,18 @@ def odd_col(data, work_columns):
 
 
 def split_strings(list_strings):
+    """
+    Function that splits string into list
+    """
     list_strings = list_strings.split(" ")
     return list_strings
 
 
 def del_col(work_columns, columns):
+    """
+    Mostly used with user input - function creates the list of runs 
+    without the ones that are mentioned in "columns"
+    """
     delete_columns = split_strings(columns)
     delete_columns = ["US"+str(eval(i)*10) for i in delete_columns]
     work_columns = [i for i in work_columns if i not in delete_columns]
@@ -89,6 +114,10 @@ def del_col(work_columns, columns):
 
 
 def spread(data, odd_out):
+    """
+    Function calculated if the spread (the difference between the maximum
+    and minimum of energy in the product side is smaller than 20
+    """
     min = data[(data["Coord"] <= 2.0)].loc[5, "US10"].min()
     max = data[(data["Coord"] <= 2.0)].loc[5, "US10"].max()
     for i in [i for i in list(data.columns.values) if i not in odd_out]:

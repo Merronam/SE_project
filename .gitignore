@@ -3,3 +3,5 @@ venv/
 *.csv
 coverage.xml
 __pycache__/
+*.egg-info/
+docs/_build
